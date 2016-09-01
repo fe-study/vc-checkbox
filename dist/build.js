@@ -452,7 +452,7 @@ module.exports = function() {
 /* 6 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"vc-checkbox-component\">\n        <label \n            v-show=\"buttonStyle\"\n            :class=\"['btn btn-' + color, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]\"\n            @click.prevent=\"toggle\"\n            :title=\"title\"\n        >\n            <input type=\"checkbox\" autocomplete=\"off\"\n                v-el:input\n                v-show=\"!readonly\"\n                :name=\"name\"\n                :value=\"value\"\n                :checked=\"active\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n            />\n            <slot>{{ label }}</slot>\n        </label>\n        <div v-else\n            :class=\"['checkbox', color, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]\"\n            @click.prevent=\"toggle\"\n        >\n            <label class=\"open\" :title=\"title\">\n                <input type=\"checkbox\" autocomplete=\"off\"\n                    v-el:input\n                    :name=\"name\"\n                    :value=\"value\"\n                    :checked=\"active\"\n                    :disabled=\"disabled\"\n                    :readonly=\"readonly\"\n                />\n                <span class=\"icon dropdown-toggle\" :class=\"[active ? 'btn-' + color : '', { 'bg': color === 'default' }]\"></span>\n                <span v-if=\"active && color === 'default'\" class=\"icon\"></span>\n                <slot>{{ label }}</slot>\n            </label>\n        </div>\n    </div>";
+module.exports = "<div class=\"vc-checkbox-component\">\n        <label \n            v-show=\"buttonStyle\"\n            :class=\"['btn btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]\"\n            @click.prevent=\"toggle\"\n            :title=\"title\"\n        >\n            <input type=\"checkbox\" autocomplete=\"off\"\n                v-el:input\n                v-show=\"!readonly\"\n                :name=\"name\"\n                :value=\"value\"\n                :checked=\"active\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n            />\n            <slot>{{ label }}</slot>\n        </label>\n        <div v-else\n            :class=\"['checkbox', typetypeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]\"\n            @click.prevent=\"toggle\"\n        >\n            <label class=\"open\" :title=\"title\">\n                <input type=\"checkbox\" autocomplete=\"off\"\n                    v-el:input\n                    :name=\"name\"\n                    :value=\"value\"\n                    :checked=\"active\"\n                    :disabled=\"disabled\"\n                    :readonly=\"readonly\"\n                />\n                <span class=\"icon dropdown-toggle\" :class=\"[active ? 'btn-' + typeColor : '', { 'bg': typeColor === 'default' }]\"></span>\n                <span v-if=\"active && typeColor === 'default'\" class=\"icon\"></span>\n                <slot>{{ label }}</slot>\n            </label>\n        </div>\n    </div>";
 
 /***/ },
 /* 7 */
@@ -468,7 +468,7 @@ Object.defineProperty(exports, "__esModule", {
 //     <div class="vc-checkbox-component">
 //         <label 
 //             v-show="buttonStyle"
-//             :class="['btn btn-' + color, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
+//             :class="['btn btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
 //             @click.prevent="toggle"
 //             :title="title"
 //         >
@@ -484,7 +484,7 @@ Object.defineProperty(exports, "__esModule", {
 //             <slot>{{ label }}</slot>
 //         </label>
 //         <div v-else
-//             :class="['checkbox', color, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
+//             :class="['checkbox', typetypeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
 //             @click.prevent="toggle"
 //         >
 //             <label class="open" :title="title">
@@ -496,8 +496,8 @@ Object.defineProperty(exports, "__esModule", {
 //                     :disabled="disabled"
 //                     :readonly="readonly"
 //                 />
-//                 <span class="icon dropdown-toggle" :class="[active ? 'btn-' + color : '', { 'bg': color === 'default' }]"></span>
-//                 <span v-if="active && color === 'default'" class="icon"></span>
+//                 <span class="icon dropdown-toggle" :class="[active ? 'btn-' + typeColor : '', { 'bg': typeColor === 'default' }]"></span>
+//                 <span v-if="active && typeColor === 'default'" class="icon"></span>
 //                 <slot>{{ label }}</slot>
 //             </label>
 //         </div>
@@ -530,7 +530,7 @@ exports.default = {
             type: Boolean,
             default: false
         },
-        status: {
+        type: {
             type: String,
             default: null
         }
@@ -551,8 +551,8 @@ exports.default = {
         group: function group() {
             return this.$parent && this.$parent._checkboxGroup;
         },
-        color: function color() {
-            return this.status || this.$parent && this.$parent.status || 'default';
+        typeColor: function typeColor() {
+            return this.type || this.$parent && this.$parent.type || 'default';
         }
     },
     watch: {

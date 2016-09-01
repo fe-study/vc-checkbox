@@ -11171,7 +11171,7 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
 		/* 6 */
 		/***/function (module, exports) {
 
-			module.exports = "<div class=\"vc-checkbox-component\">\n        <label \n            v-show=\"buttonStyle\"\n            :class=\"['btn btn-' + color, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]\"\n            @click.prevent=\"toggle\"\n            :title=\"title\"\n        >\n            <input type=\"checkbox\" autocomplete=\"off\"\n                v-el:input\n                v-show=\"!readonly\"\n                :name=\"name\"\n                :value=\"value\"\n                :checked=\"active\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n            />\n            <slot>{{ label }}</slot>\n        </label>\n        <div v-else\n            :class=\"['checkbox', color, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]\"\n            @click.prevent=\"toggle\"\n        >\n            <label class=\"open\" :title=\"title\">\n                <input type=\"checkbox\" autocomplete=\"off\"\n                    v-el:input\n                    :name=\"name\"\n                    :value=\"value\"\n                    :checked=\"active\"\n                    :disabled=\"disabled\"\n                    :readonly=\"readonly\"\n                />\n                <span class=\"icon dropdown-toggle\" :class=\"[active ? 'btn-' + color : '', { 'bg': color === 'default' }]\"></span>\n                <span v-if=\"active && color === 'default'\" class=\"icon\"></span>\n                <slot>{{ label }}</slot>\n            </label>\n        </div>\n    </div>";
+			module.exports = "<div class=\"vc-checkbox-component\">\n        <label \n            v-show=\"buttonStyle\"\n            :class=\"['btn btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]\"\n            @click.prevent=\"toggle\"\n            :title=\"title\"\n        >\n            <input type=\"checkbox\" autocomplete=\"off\"\n                v-el:input\n                v-show=\"!readonly\"\n                :name=\"name\"\n                :value=\"value\"\n                :checked=\"active\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n            />\n            <slot>{{ label }}</slot>\n        </label>\n        <div v-else\n            :class=\"['checkbox', typetypeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]\"\n            @click.prevent=\"toggle\"\n        >\n            <label class=\"open\" :title=\"title\">\n                <input type=\"checkbox\" autocomplete=\"off\"\n                    v-el:input\n                    :name=\"name\"\n                    :value=\"value\"\n                    :checked=\"active\"\n                    :disabled=\"disabled\"\n                    :readonly=\"readonly\"\n                />\n                <span class=\"icon dropdown-toggle\" :class=\"[active ? 'btn-' + typeColor : '', { 'bg': typeColor === 'default' }]\"></span>\n                <span v-if=\"active && typeColor === 'default'\" class=\"icon\"></span>\n                <slot>{{ label }}</slot>\n            </label>\n        </div>\n    </div>";
 
 			/***/
 		},
@@ -11188,7 +11188,7 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
 			//     <div class="vc-checkbox-component">
 			//         <label 
 			//             v-show="buttonStyle"
-			//             :class="['btn btn-' + color, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
+			//             :class="['btn btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
 			//             @click.prevent="toggle"
 			//             :title="title"
 			//         >
@@ -11204,7 +11204,7 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
 			//             <slot>{{ label }}</slot>
 			//         </label>
 			//         <div v-else
-			//             :class="['checkbox', color, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
+			//             :class="['checkbox', typetypeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
 			//             @click.prevent="toggle"
 			//         >
 			//             <label class="open" :title="title">
@@ -11216,8 +11216,8 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
 			//                     :disabled="disabled"
 			//                     :readonly="readonly"
 			//                 />
-			//                 <span class="icon dropdown-toggle" :class="[active ? 'btn-' + color : '', { 'bg': color === 'default' }]"></span>
-			//                 <span v-if="active && color === 'default'" class="icon"></span>
+			//                 <span class="icon dropdown-toggle" :class="[active ? 'btn-' + typeColor : '', { 'bg': typeColor === 'default' }]"></span>
+			//                 <span v-if="active && typeColor === 'default'" class="icon"></span>
 			//                 <slot>{{ label }}</slot>
 			//             </label>
 			//         </div>
@@ -11250,7 +11250,7 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
 						type: Boolean,
 						default: false
 					},
-					status: {
+					type: {
 						type: String,
 						default: null
 					}
@@ -11271,8 +11271,8 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
 					group: function group() {
 						return this.$parent && this.$parent._checkboxGroup;
 					},
-					color: function color() {
-						return this.status || this.$parent && this.$parent.status || 'default';
+					typeColor: function typeColor() {
+						return this.type || this.$parent && this.$parent.type || 'default';
 					}
 				},
 				watch: {
@@ -12459,7 +12459,7 @@ new _vue2.default({
             label: '选择2',
             value: true,
             button: true,
-            status: 'success',
+            type: 'success',
             checked: true,
             disabled: false,
             readonly: false
@@ -12471,7 +12471,7 @@ new _vue2.default({
             this.button = false;
             this.disabled = true;
             this.readonly = true;
-            this.status = 'warning';
+            this.type = 'warning';
             this.disabled = false;
             this.readonly = false;
         },
@@ -12479,19 +12479,19 @@ new _vue2.default({
             this.button = true;
             this.disabled = true;
             this.readonly = true;
-            this.status = 'danger';
+            this.type = 'danger';
             this.disabled = false;
             this.readonly = false;
         },
         disabledFn: function disabledFn() {
             this.readonly = false;
             this.disabled = true;
-            this.status = 'primary';
+            this.type = 'primary';
         },
         readonlyFn: function readonlyFn() {
             this.disabled = false;
             this.readonly = true;
-            this.status = 'info';
+            this.type = 'info';
         }
     },
     components: {

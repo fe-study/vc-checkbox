@@ -2,7 +2,7 @@
     <div class="vc-checkbox-component">
         <label 
             v-show="buttonStyle"
-            :class="['btn btn-' + color, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
+            :class="['btn btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
             @click.prevent="toggle"
             :title="title"
         >
@@ -18,7 +18,7 @@
             <slot>{{ label }}</slot>
         </label>
         <div v-else
-            :class="['checkbox', color, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
+            :class="['checkbox', typetypeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
             @click.prevent="toggle"
         >
             <label class="open" :title="title">
@@ -30,8 +30,8 @@
                     :disabled="disabled"
                     :readonly="readonly"
                 />
-                <span class="icon dropdown-toggle" :class="[active ? 'btn-' + color : '', { 'bg': color === 'default' }]"></span>
-                <span v-if="active && color === 'default'" class="icon"></span>
+                <span class="icon dropdown-toggle" :class="[active ? 'btn-' + typeColor : '', { 'bg': typeColor === 'default' }]"></span>
+                <span v-if="active && typeColor === 'default'" class="icon"></span>
                 <slot>{{ label }}</slot>
             </label>
         </div>
@@ -64,7 +64,7 @@ export default {
             type: Boolean,
             default: false
         },
-        status: {
+        type: {
             type: String,
             default: null
         }
@@ -84,8 +84,8 @@ export default {
         group () {
             return this.$parent && this.$parent._checkboxGroup
         },
-        color () {
-            return (this.status || (this.$parent && this.$parent.status)) || 'default'
+        typeColor () {
+            return (this.type || (this.$parent && this.$parent.type)) || 'default'
         }
     },
     watch: {
