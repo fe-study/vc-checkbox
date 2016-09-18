@@ -1,3 +1,4 @@
-import vcCheckbox from './components/Checkbox'
+import vcCheckbox from './Checkbox'
 
-module.exports = vcCheckbox
+export default vcCheckbox
+export { vcCheckbox }

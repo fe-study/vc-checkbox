@@ -13,6 +13,9 @@
 
 `npm install vc-checkbox --save`
 
+if you are using single file `*.vue` in project, please import the component by:  
+`import vcCheckbox from 'vc-checkbox/src`
+
 ## Demo
 
 [online demo](https://iwaimai-bi-fe.github.io/vc-checkbox/examples/)

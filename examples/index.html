@@ -51,8 +51,8 @@
             :disabled="disabled"
             :readonly="readonly"
         >
-            选择1
-        </vc-checkbox>(slot)
+            slot
+        </vc-checkbox>
 
         <vc-checkbox
             :label="label"
@@ -63,7 +63,7 @@
             :disabled="disabled"
             :readonly="readonly"
         >
-        </vc-checkbox>(no slot, use label)
+        </vc-checkbox>
 
         <div class="form-group">
             <div>checked - (默认: false)</div>
@@ -93,6 +93,7 @@
             <label><input type="radio" value="default" name="type" v-model="type">default</label>
             <label><input type="radio" value="warning" name="type" v-model="type">warning</label>
             <label><input type="radio" value="danger" name="type" v-model="type">danger</label>
+            <label><input type="radio" value="success" name="type" v-model="type">success</label>
             <label><input type="radio" value="info" name="type" v-model="type">info</label>
             <label><input type="radio" value="primary" name="type" v-model="type">primary</label>
         </div>

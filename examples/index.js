@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import vcCheckbox from '../dist/build.js'
+import vcCheckbox from '../src'
 
 new Vue({
 	el: '#app',
@@ -9,7 +9,7 @@ new Vue({
                 'true': true,
                 'false': false
             },
-            label: '选择2',
+            label: '选择2, not slot',
             value: true,
             button: true,
             type: 'success',

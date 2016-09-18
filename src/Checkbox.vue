@@ -1,5 +1,5 @@
 <template>
-    <div class="vc-checkbox-component">
+    <div class="vc-checkbox-component" :class="{ 'inline': inlineMode }">
         <label 
             v-show="buttonStyle"
             :class="['btn btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
@@ -40,6 +40,7 @@
 
 <script>
 export default {
+    name: 'vc-checkbox',
     props: {
         name: {
             type: String,
@@ -51,6 +52,9 @@ export default {
         },
         checked: {
             twoWay: true
+        },
+        inline: {
+            default: true
         },
         button: {
             type: Boolean,
@@ -75,6 +79,12 @@ export default {
         }
     },
     computed: {
+        inlineMode () {
+            if (this.inline !== false && this.button && this.group && this.$parent._checkboxGroup) {
+                return true
+            }
+            return false 
+        },
         active () {
             return typeof this.value !== 'boolean' && this.group ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value
         },
@@ -152,6 +162,10 @@ export default {
 <style>
 .vc-checkbox-component {
     display: inline-block;
+
+    &.inline {
+        float: left;
+    }
 }
 .checkbox { 
     position: relative;
