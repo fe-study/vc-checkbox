@@ -1,5 +1,5 @@
 <template>
-    <div class="vc-checkbox-component" :class="{ 'inline': inlineMode }">
+    <div class="vc-checkbox-component" :class="{ 'group-item': group }">
         <label 
             v-show="buttonStyle"
             :class="['btn btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
@@ -32,11 +32,85 @@
                 />
                 <span class="icon dropdown-toggle" :class="[active ? 'btn-' + typeColor : '', { 'bg': typeColor === 'default' }]"></span>
                 <span v-if="active && typeColor === 'default'" class="icon"></span>
-                <slot>{{ label }}</slot>
+                <span class="label-content"><slot>{{ label }}</slot></span>
             </label>
         </div>
     </div>
 </template>
+
+<style>
+.vc-checkbox-component {
+    display: inline-block;
+
+    &.group-item {
+        float: left;
+    }
+
+    // 非group模式的重置margin
+    .open {
+        margin-right: 5px;
+    }
+
+    span.label-content {
+        display: inline-block;
+        position: relative;
+        top: 0px;
+        left: -3px;
+    }
+}
+.checkbox { 
+    position: relative;
+}
+.checkbox > label > input {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: -1;
+    padding: 0;
+    opacity: 0;
+    margin: 0;
+}
+.checkbox > label > .icon {
+    position: absolute;
+    top: .2rem;
+    left: 0;
+    display: block;
+    width: 1.4rem;
+    height: 1.4rem;
+    line-height:1rem;
+    text-align: center;
+    user-select: none;
+    border-radius: .35rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+.checkbox:not(.active) > label > .icon {
+    background-color: #ddd;
+    border: 1px solid #bbb;
+}
+.checkbox > label > input:focus ~ .icon {
+    outline: 0;
+    // border: 1px solid #66afe9;
+    // box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+.checkbox.active > label > .icon {
+    background-size: 1rem 1rem;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJtNS43MywwLjUybC0zLjEyNDIyLDMuMzQxNjFsLTEuMzM4OTUsLTEuNDMyMTJsLTEuMjQ5NjksMS4zMzY2NWwyLjU4ODYzLDIuNzY4NzZsNC4zNzM5LC00LjY3ODI2bC0xLjI0OTY5LC0xLjMzNjY1bDAsMGwwLjAwMDAyLDAuMDAwMDF6Ii8+PC9zdmc+);
+}
+.checkbox.active .btn-default { filter: brightness(75%); }
+.checkbox.disabled > label > .icon,
+.checkbox.readonly > label > .icon,
+.btn.readonly {
+    filter: alpha(opacity=65);
+    box-shadow: none;
+    opacity: .65;
+}
+label.btn > input[type=checkbox] {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    pointer-events: none;
+}
+</style>
 
 <script>
 export default {
@@ -52,9 +126,6 @@ export default {
         },
         checked: {
             twoWay: true
-        },
-        inline: {
-            default: true
         },
         button: {
             type: Boolean,
@@ -79,12 +150,6 @@ export default {
         }
     },
     computed: {
-        inlineMode () {
-            if (this.inline !== false && this.button && this.group && this.$parent._checkboxGroup) {
-                return true
-            }
-            return false 
-        },
         active () {
             return typeof this.value !== 'boolean' && this.group ? ~this.$parent.value.indexOf(this.value) : this.checked === this.value
         },
@@ -159,64 +224,3 @@ export default {
 }
 </script>
 
-<style>
-.vc-checkbox-component {
-    display: inline-block;
-
-    &.inline {
-        float: left;
-    }
-}
-.checkbox { 
-    position: relative;
-}
-.checkbox > label > input {
-    box-sizing: border-box;
-    position: absolute;
-    z-index: -1;
-    padding: 0;
-    opacity: 0;
-    margin: 0;
-}
-.checkbox > label > .icon {
-    position: absolute;
-    top: .2rem;
-    left: 0;
-    display: block;
-    width: 1.4rem;
-    height: 1.4rem;
-    line-height:1rem;
-    text-align: center;
-    user-select: none;
-    border-radius: .35rem;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 50% 50%;
-}
-.checkbox:not(.active) > label > .icon {
-    background-color: #ddd;
-    border: 1px solid #bbb;
-}
-.checkbox > label > input:focus ~ .icon {
-    outline: 0;
-    border: 1px solid #66afe9;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-}
-.checkbox.active > label > .icon {
-    background-size: 1rem 1rem;
-    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJtNS43MywwLjUybC0zLjEyNDIyLDMuMzQxNjFsLTEuMzM4OTUsLTEuNDMyMTJsLTEuMjQ5NjksMS4zMzY2NWwyLjU4ODYzLDIuNzY4NzZsNC4zNzM5LC00LjY3ODI2bC0xLjI0OTY5LC0xLjMzNjY1bDAsMGwwLjAwMDAyLDAuMDAwMDF6Ii8+PC9zdmc+);
-}
-.checkbox.active .btn-default { filter: brightness(75%); }
-.checkbox.disabled > label > .icon,
-.checkbox.readonly > label > .icon,
-.btn.readonly {
-    filter: alpha(opacity=65);
-    box-shadow: none;
-    opacity: .65;
-}
-label.btn > input[type=checkbox] {
-    position: absolute;
-    clip: rect(0,0,0,0);
-    pointer-events: none;
-}
-</style>
