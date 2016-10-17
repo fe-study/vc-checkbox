@@ -2,7 +2,7 @@
     <div class="vc-checkbox-component" :class="{ 'group-item': group }">
         <label 
             v-show="buttonStyle"
-            :class="['btn btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
+            :class="['btn', 'btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
             @click.prevent="toggle"
             :title="title"
         >
@@ -30,7 +30,7 @@
                     :disabled="disabled"
                     :readonly="readonly"
                 />
-                <span class="icon dropdown-toggle" :class="[active ? 'btn-' + typeColor : '', { 'bg': typeColor === 'default' }]"></span>
+                <span class="icon" :class="[active ? 'btn-' + typeColor : '', { 'bg': typeColor === 'default' }]"></span>
                 <span v-if="active && typeColor === 'default'" class="icon"></span>
                 <span class="label-content"><slot>{{ label }}</slot></span>
             </label>
@@ -38,7 +38,7 @@
     </div>
 </template>
 
-<style>
+<style lang="less">
 .vc-checkbox-component {
     display: inline-block;
 
@@ -54,8 +54,12 @@
     span.label-content {
         display: inline-block;
         position: relative;
-        top: 0px;
+        top: -1px;
         left: -3px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 14px;
+        vertical-align: baseline;
     }
 }
 .checkbox { 
@@ -71,15 +75,15 @@
 }
 .checkbox > label > .icon {
     position: absolute;
-    top: .2rem;
+    top: 2px;
     left: 0;
     display: block;
-    width: 1.4rem;
-    height: 1.4rem;
-    line-height:1rem;
+    width: 14px;
+    height: 14px;
+    line-height: 10px;
     text-align: center;
     user-select: none;
-    border-radius: .35rem;
+    border-radius: 4px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50% 50%;
@@ -94,7 +98,7 @@
     // box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
 }
 .checkbox.active > label > .icon {
-    background-size: 1rem 1rem;
+    background-size: 10px 10px;
     background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJtNS43MywwLjUybC0zLjEyNDIyLDMuMzQxNjFsLTEuMzM4OTUsLTEuNDMyMTJsLTEuMjQ5NjksMS4zMzY2NWwyLjU4ODYzLDIuNzY4NzZsNC4zNzM5LC00LjY3ODI2bC0xLjI0OTY5LC0xLjMzNjY1bDAsMGwwLjAwMDAyLDAuMDAwMDF6Ii8+PC9zdmc+);
 }
 .checkbox.active .btn-default { filter: brightness(75%); }

@@ -10375,7 +10375,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, ".vc-checkbox-component {\n  display: inline-block;\n}\n.vc-checkbox-component.group-item {\n  float: left;\n}\n.vc-checkbox-component .open {\n  margin-right: 5px;\n}\n.vc-checkbox-component span.label-content {\n  display: inline-block;\n  position: relative;\n  top: 0px;\n  left: -3px;\n}\n.checkbox {\n  position: relative;\n}\n.checkbox > label > input {\n  box-sizing: border-box;\n  position: absolute;\n  z-index: -1;\n  padding: 0;\n  opacity: 0;\n  margin: 0;\n}\n.checkbox > label > .icon {\n  position: absolute;\n  top: .2rem;\n  left: 0;\n  display: block;\n  width: 1.4rem;\n  height: 1.4rem;\n  line-height: 1rem;\n  text-align: center;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border-radius: .35rem;\n  background-repeat: no-repeat;\n  background-position: center center;\n  background-size: 50% 50%;\n}\n.checkbox:not(.active) > label > .icon {\n  background-color: #ddd;\n  border: 1px solid #bbb;\n}\n.checkbox > label > input:focus ~ .icon {\n  outline: 0;\n}\n.checkbox.active > label > .icon {\n  background-size: 1rem 1rem;\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJtNS43MywwLjUybC0zLjEyNDIyLDMuMzQxNjFsLTEuMzM4OTUsLTEuNDMyMTJsLTEuMjQ5NjksMS4zMzY2NWwyLjU4ODYzLDIuNzY4NzZsNC4zNzM5LC00LjY3ODI2bC0xLjI0OTY5LC0xLjMzNjY1bDAsMGwwLjAwMDAyLDAuMDAwMDF6Ii8+PC9zdmc+);\n}\n.checkbox.active .btn-default {\n  -webkit-filter: brightness(75%);\n          filter: brightness(75%);\n}\n.checkbox.disabled > label > .icon,\n.checkbox.readonly > label > .icon,\n.btn.readonly {\n  filter: alpha(opacity=65);\n  box-shadow: none;\n  opacity: .65;\n}\nlabel.btn > input[type=checkbox] {\n  position: absolute;\n  clip: rect(0, 0, 0, 0);\n  pointer-events: none;\n}\n", ""]);
+	exports.push([module.id, ".vc-checkbox-component {\n  display: inline-block;\n}\n.vc-checkbox-component.group-item {\n  float: left;\n}\n.vc-checkbox-component .open {\n  margin-right: 5px;\n}\n.vc-checkbox-component span.label-content {\n  display: inline-block;\n  position: relative;\n  top: -1px;\n  left: -3px;\n  height: 20px;\n  line-height: 20px;\n  font-size: 14px;\n  vertical-align: baseline;\n}\n.checkbox {\n  position: relative;\n}\n.checkbox > label > input {\n  box-sizing: border-box;\n  position: absolute;\n  z-index: -1;\n  padding: 0;\n  opacity: 0;\n  margin: 0;\n}\n.checkbox > label > .icon {\n  position: absolute;\n  top: 2px;\n  left: 0;\n  display: block;\n  width: 14px;\n  height: 14px;\n  line-height: 10px;\n  text-align: center;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border-radius: 4px;\n  background-repeat: no-repeat;\n  background-position: center center;\n  background-size: 50% 50%;\n}\n.checkbox:not(.active) > label > .icon {\n  background-color: #ddd;\n  border: 1px solid #bbb;\n}\n.checkbox > label > input:focus ~ .icon {\n  outline: 0;\n}\n.checkbox.active > label > .icon {\n  background-size: 10px 10px;\n  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJtNS43MywwLjUybC0zLjEyNDIyLDMuMzQxNjFsLTEuMzM4OTUsLTEuNDMyMTJsLTEuMjQ5NjksMS4zMzY2NWwyLjU4ODYzLDIuNzY4NzZsNC4zNzM5LC00LjY3ODI2bC0xLjI0OTY5LC0xLjMzNjY1bDAsMGwwLjAwMDAyLDAuMDAwMDF6Ii8+PC9zdmc+);\n}\n.checkbox.active .btn-default {\n  -webkit-filter: brightness(75%);\n          filter: brightness(75%);\n}\n.checkbox.disabled > label > .icon,\n.checkbox.readonly > label > .icon,\n.btn.readonly {\n  filter: alpha(opacity=65);\n  box-shadow: none;\n  opacity: .65;\n}\nlabel.btn > input[type=checkbox] {\n  position: absolute;\n  clip: rect(0, 0, 0, 0);\n  pointer-events: none;\n}\n", ""]);
 	
 	// exports
 
@@ -10701,7 +10701,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     <div class="vc-checkbox-component" :class="{ 'group-item': group }">
 	//         <label 
 	//             v-show="buttonStyle"
-	//             :class="['btn btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
+	//             :class="['btn', 'btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]"
 	//             @click.prevent="toggle"
 	//             :title="title"
 	//         >
@@ -10729,7 +10729,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//                     :disabled="disabled"
 	//                     :readonly="readonly"
 	//                 />
-	//                 <span class="icon dropdown-toggle" :class="[active ? 'btn-' + typeColor : '', { 'bg': typeColor === 'default' }]"></span>
+	//                 <span class="icon" :class="[active ? 'btn-' + typeColor : '', { 'bg': typeColor === 'default' }]"></span>
 	//                 <span v-if="active && typeColor === 'default'" class="icon"></span>
 	//                 <span class="label-content"><slot>{{ label }}</slot></span>
 	//             </label>
@@ -10737,7 +10737,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     </div>
 	// </template>
 	
-	// <style>
+	// <style lang="less">
 	// .vc-checkbox-component {
 	//     display: inline-block;
 	
@@ -10753,8 +10753,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     span.label-content {
 	//         display: inline-block;
 	//         position: relative;
-	//         top: 0px;
+	//         top: -1px;
 	//         left: -3px;
+	//         height: 20px;
+	//         line-height: 20px;
+	//         font-size: 14px;
+	//         vertical-align: baseline;
 	//     }
 	// }
 	// .checkbox { 
@@ -10770,15 +10774,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	// }
 	// .checkbox > label > .icon {
 	//     position: absolute;
-	//     top: .2rem;
+	//     top: 2px;
 	//     left: 0;
 	//     display: block;
-	//     width: 1.4rem;
-	//     height: 1.4rem;
-	//     line-height:1rem;
+	//     width: 14px;
+	//     height: 14px;
+	//     line-height: 10px;
 	//     text-align: center;
 	//     user-select: none;
-	//     border-radius: .35rem;
+	//     border-radius: 4px;
 	//     background-repeat: no-repeat;
 	//     background-position: center center;
 	//     background-size: 50% 50%;
@@ -10793,7 +10797,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     // box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
 	// }
 	// .checkbox.active > label > .icon {
-	//     background-size: 1rem 1rem;
+	//     background-size: 10px 10px;
 	//     background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJtNS43MywwLjUybC0zLjEyNDIyLDMuMzQxNjFsLTEuMzM4OTUsLTEuNDMyMTJsLTEuMjQ5NjksMS4zMzY2NWwyLjU4ODYzLDIuNzY4NzZsNC4zNzM5LC00LjY3ODI2bC0xLjI0OTY5LC0xLjMzNjY1bDAsMGwwLjAwMDAyLDAuMDAwMDF6Ii8+PC9zdmc+);
 	// }
 	// .checkbox.active .btn-default { filter: brightness(75%); }
@@ -10935,7 +10939,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 11 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"vc-checkbox-component\" :class=\"{ 'group-item': group }\">\n        <label \n            v-show=\"buttonStyle\"\n            :class=\"['btn btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]\"\n            @click.prevent=\"toggle\"\n            :title=\"title\"\n        >\n            <input type=\"checkbox\" autocomplete=\"off\"\n                v-el:input\n                v-show=\"!readonly\"\n                :name=\"name\"\n                :value=\"value\"\n                :checked=\"active\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n            />\n            <slot>{{ label }}</slot>\n        </label>\n        <div v-else\n            :class=\"['checkbox', typetypeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]\"\n            @click.prevent=\"toggle\"\n        >\n            <label class=\"open\" :title=\"title\">\n                <input type=\"checkbox\" autocomplete=\"off\"\n                    v-el:input\n                    :name=\"name\"\n                    :value=\"value\"\n                    :checked=\"active\"\n                    :disabled=\"disabled\"\n                    :readonly=\"readonly\"\n                />\n                <span class=\"icon dropdown-toggle\" :class=\"[active ? 'btn-' + typeColor : '', { 'bg': typeColor === 'default' }]\"></span>\n                <span v-if=\"active && typeColor === 'default'\" class=\"icon\"></span>\n                <span class=\"label-content\"><slot>{{ label }}</slot></span>\n            </label>\n        </div>\n    </div>";
+	module.exports = "<div class=\"vc-checkbox-component\" :class=\"{ 'group-item': group }\">\n        <label \n            v-show=\"buttonStyle\"\n            :class=\"['btn', 'btn-' + typeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]\"\n            @click.prevent=\"toggle\"\n            :title=\"title\"\n        >\n            <input type=\"checkbox\" autocomplete=\"off\"\n                v-el:input\n                v-show=\"!readonly\"\n                :name=\"name\"\n                :value=\"value\"\n                :checked=\"active\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n            />\n            <slot>{{ label }}</slot>\n        </label>\n        <div v-else\n            :class=\"['checkbox', typetypeColor, { 'active': checked, 'disabled': disabled, 'readonly': readonly }]\"\n            @click.prevent=\"toggle\"\n        >\n            <label class=\"open\" :title=\"title\">\n                <input type=\"checkbox\" autocomplete=\"off\"\n                    v-el:input\n                    :name=\"name\"\n                    :value=\"value\"\n                    :checked=\"active\"\n                    :disabled=\"disabled\"\n                    :readonly=\"readonly\"\n                />\n                <span class=\"icon\" :class=\"[active ? 'btn-' + typeColor : '', { 'bg': typeColor === 'default' }]\"></span>\n                <span v-if=\"active && typeColor === 'default'\" class=\"icon\"></span>\n                <span class=\"label-content\"><slot>{{ label }}</slot></span>\n            </label>\n        </div>\n    </div>";
 
 /***/ }
 /******/ ])
