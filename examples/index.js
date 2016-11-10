@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import vcCheckbox from '../src'
+import vcCheckbox from '../src/Checkbox.vue'
 
 new Vue({
 	el: '#app',
